@@ -4,7 +4,7 @@ import socket
 def get_remote_machine_info():
     remote_host = 'www.python.org'
     try:
-        print(f"IP address of {remote_host}: {socket.gethostbyname(remote_host)}")
+        print(f"IP address of {remote_host}: {socket.gethostbyname(remote_host)}") # 151.101.64.223
     except socket.error as e:
         print(f"{remote_host}: {e}")
 
