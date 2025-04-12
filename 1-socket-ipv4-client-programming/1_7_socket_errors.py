@@ -33,7 +33,7 @@ def main():
 
     # Third try-except block -- sending data
     try:
-        s.sendall(f"GET {filename} HTTP/1.0\r\n\r\n")  # 데이터 보내기
+        s.sendall(f"GET {filename} HTTP/1.0\r\n\r\n")  # 데이터 보내기, HTTP 1.0 방식으로 파일 요청. /{filename} 같은 경로 요청
     except socket.error as e:
         print(f"Error sending data: {e}")
         sys.exit(1)
@@ -41,7 +41,7 @@ def main():
     while True:
         # Fourth try-except block -- waiting to receive data from remote host
         try:
-            buf = s.recv(2048)  # 데이터 받기
+            buf = s.recv(2048)  # 데이터 받기, 2048 바이트씩 서버 응답 계속 읽음
         except socket.error as e:
             print(f"Error receiving data: {e}")
             sys.exit(1)
